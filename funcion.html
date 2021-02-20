@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let segundos = 60;
+        function reloj() {
+            if(segundos==60){
+                document.getElementById('displayReloj').innerHTML = '01:00';
+            }else if(segundos>9){
+                document.getElementById('displayReloj').innerHTML = '00:' + segundos;
+            }else{
+                document.getElementById('displayReloj').innerHTML = '00:' + '0' + segundos;
+            }
+            if(segundos==0){
+                alert('Tu tiempo ha terminado');
+            }else{
+                let t = setTimeout(function(){reloj()},1000);
+            }
+            segundos--;
+        }
+        
+
+      
+    </script>
+
+<button onclick="">
+Detener
+</button>
+
+      <input type="text" name="" id="id_split">
+      <button onclick="reloj()">
+      Click!
+      </button>
+     
+
+      <div style="text-align:center;">
+          <div id="cabecera"><h2>Cuenta Regresiva</h2><h3></h3></div>
+          <div style="color:blue; font-family: verdana, arial; font-size:30px; padding:15px;" id ="displayReloj" >   </div>
+      </div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

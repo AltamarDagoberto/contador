@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <title>Contador</title>
+    </head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <div class="row">
+        <form name="form" class="col s12">
+          <div class="row">
+            <div class="input-field col s2">
+              <input  type="number" name="hour" id="hour">
+              <label for="first_name">Horas</label>
+            </div>
+            <div class="input-field col s2">
+              <input type="number" name="minute" id="minute">
+              <label for="last_name">Minutos</label>
+            </div>
+            <div class="input-field col s2">
+                <span>
+                    <input type="number" size="2" class="form_input" id="second" name="second"></span>
+                <label for="last_name">Segundos</label>
+              </div>
+          </div>  
+          <div class="input-field col s2">
+            <button class="btn" onclick="countDown()">Iniciar</button>
+          </div>
+      </div>    
+        </form>
+      </div>
+      
+      <script>
+        function countDown() {
+
+            let toHour = document.getElementById("hour").value;
+            let toMinute = document.getElementById("minute").value;
+            let toSecond = document.getElementById("second").value;
+
+            toSecond = toSecond - 1;
+
+            if (toSecond < 0) {
+                toSecond = 59;
+                toMinute = toMinute - 1;
+            }
+
+            form.second.value = toSecond;
+            if (toMinute < 0) {
+
+                toMinute = 59;
+                toHour = toHour - 1;
+            }
+
+            form.minute.value = toMinute;
+            form.hour.value = toHour;
+
+            if (toHour < 0) {
+                //final
+                form.second.value = 0;
+                form.minute.value = 0;
+                form.hour.value = 0;
+                alert("Su Tiempo Ha Terminado");
+                
+            } else {
+                setTimeout(countDown, 1000);
+            }
+        }
+    </script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</body>
+</html>
